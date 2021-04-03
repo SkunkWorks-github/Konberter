@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Metric Converter</string>
+    <string-array name="units">
+        <item>Choose Unit</item>
+        <item>Milligram</item>
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Metric Ton</item>
+    </string-array>
+</resources>
