@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         else if (parent.getItemAtPosition(position).equals("Milligram"))
         {
                 numInput.setEnabled(true);
-                if (numInput.getText().equals("")) {
-                    numInput.setText(String.valueOf(0));
-                }
+//                if (numInput.getText().equals("")) {
+//                    numInput.setText(String.valueOf(0));
+//                }
                 numInput.setText(String.valueOf(0));
                 numInput.addTextChangedListener(new TextWatcher() {
                     @Override
@@ -60,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                        if(numInput.getText().length() < 1) numInput.setText(String.valueOf(0));
+                        Toast.makeText(MainActivity.this, numInput.getText(), Toast.LENGTH_SHORT).show();
                         num = Double.parseDouble(numInput.getText().toString());
                         mg = num;
                         g = num * 1000;
